@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="vendas">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendas</title>
+ 
+ 
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--  <link rel="stylesheet" href="template/AdminLTE-2.3.5/bootstrap/css/bootstrap.min.css"> -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/dist/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/dist/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="template/AdminLTE-2.3.5/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+
+
+
+<script src="lib/angularjs/js/angular.min.js"></script>
+<script src="lib/angularjs/js/angular-route.min.js"></script>
+<script type="text/javascript" src="vendas.js"></script>
+<script type="text/javascript" src="produtoCtrl.js"></script>
+<script type="text/javascript" src="clienteCtrl.js"></script>
+<script type="text/javascript" src="routeConfig.js"></script>
+</head>
+<body>
+	<a href="#/produto">Produto</a>
+	<br>
+	<a href="#/cliente">Cliente</a>
+	<br>
+	<a href="#/admin">template</a>
+	<div ng-view></div>
+	<script src="lib/jquery/js/jquery.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	
+	
+ 
+</body>
+</html>
