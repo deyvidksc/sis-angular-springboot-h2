@@ -5,43 +5,50 @@
 		</div>
 
 		<form class="w3-container w3-small" name="clienteForm">
-			<p><label>C&oacute;digo</label>
-				<input id="txt_codigo" name="codigo" type="text" size="5px"
-					placeholder="C&oacute;digo" class="w3-input"
-					ng-model="cliente.codigo"> 
+			<p>
+				<label>C&oacute;digo</label> <input id="txt_codigo" name="codigo"
+					type="text" size="5px" placeholder="C&oacute;digo" class="w3-input"
+					ng-model="cliente.codigo">
 			</p>
 
-			<p><label>Nome</label>
-				<input id="txt_nome" name="nome" type="text" size="32px"
-					placeholder="Coloque aqui o nome" class="w3-input"
-					ng-model="cliente.nome"> 
+			<p>
+				<label>Nome</label> <input id="txt_nome" name="nome" type="text"
+					size="32px" placeholder="Coloque aqui o nome" class="w3-input"
+					ng-model="cliente.nome">
 			</p>
-			 
+
 
 			</p>
+
 			<button type="button" class="w3-btn w3-theme"
-				ng-click="novoCliente(cliente);"> Salvar</button>
+				ng-click="novoCliente(cliente);  listarCliente()"> Salvar</button>
 			&emsp;
 			<button type="button" class="w3-btn w3-theme"
 				ng-click=" listarCliente()">Listar</button>
+			&emsp;
+			<button class="w3-btn w3-theme" ng-click="apagarClientes(clientes)"
+				ng-if="hasContatoSelecionado">Apagar Clientes</button>
 			</p>
+			</p>
+
 		</form>
 	</div>
 	<hr>
 	<p>
 	<div class="w3-container">
-		<h4>Lista de produtos</h4>
+		<h4>Lista de clientes</h4>
 		<table class="w3-table-all">
 			<tr>
 				<th>Codigo</th>
 				<th>Nome</th>
-				<th>AC</th>
+				<th>A&ccedil;&atilde;o</th>
 			</tr>
-			<tr ng-repeat="cliente in clientes">
+			<tr ng-repeat="cliente in clientes | filter:criterioDeBusca "
+				ng-class="{'selecionado negrito': cliente.selecionado}">
 				<td>{{cliente.codigo}}</td>
 				<td>{{cliente.nome}}</td>
-				<td><button type="button" class="w3-btn w3-theme"
-						ng-click="editarCliente(cliente)">Editar</button></td>
+				<td><input type="checkbox" ng-model="cliente.selecionado"
+					ng-click="verificarClienteSelecionado(clientes)" /></td>
 			</tr>
 		</table>
 	</div>
@@ -51,4 +58,4 @@
 	<!-- Container -->
 
 
-<!-- Container -->
+	<!-- Container -->

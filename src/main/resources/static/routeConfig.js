@@ -23,5 +23,5 @@ angular.module("vendas").config(function ($routeProvider) {
 		templateUrl: "sobre.html",
 //		controller: "adminCtrl"
 	});
-//	$routeProvider.otherwise({redirectTo: "/inicio"});
+	$routeProvider.otherwise({redirectTo: "/sobre"});
 });

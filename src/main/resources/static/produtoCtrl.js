@@ -33,6 +33,8 @@ angular.module("vendas").controller(
 									alert("Dados deletados");
 								});
 						return produto;
+					} else { 
+						return produto;	
 					}
 				});
 				$scope.listarProduto($scope.produtos);

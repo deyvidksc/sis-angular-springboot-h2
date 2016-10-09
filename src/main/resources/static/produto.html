@@ -31,7 +31,7 @@
 
 			</p>
 			<button type="button" class="w3-btn w3-theme"
-				ng-click="novoProduto(produto);"> Salvar</button>
+				ng-click="novoProduto(produto); listarProduto()"> Salvar</button>
 			&emsp;
 			<button type="button" class="w3-btn w3-theme"
 				ng-click=" listarProduto()">Listar</button>
@@ -55,7 +55,7 @@
 				<th>Nome</th>
 				<th>Tipo</th>
 				<th>Quantidade</th>
-				<th>Select</th>
+				<th>A&ccedil;&atilde;o</th>
 			</tr>
 			<tr ng-repeat="produto in produtos | filter:criterioDeBusca "
 				ng-class="{'selecionado negrito': produto.selecionado}">
@@ -63,7 +63,8 @@
 				<td>{{produto.nome}}</td>
 				<td>{{produto.tipo}}</td>
 				<td>{{produto.quantidade}}</td>
-				<td><input type="checkbox" ng-model="produto.selecionado" ng-click="verificarProdutoSelecionado(produtos)"/></td>
+				<td><input type="checkbox" ng-model="produto.selecionado"
+					ng-click="verificarProdutoSelecionado(produtos)" /></td>
 				<!-- 				<td><button type="button" class="w3-btn w3-theme" -->
 				<!-- 						ng-click="editarProduto(produto)">Editar</button></td> -->
 
