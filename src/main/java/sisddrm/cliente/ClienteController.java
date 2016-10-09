@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import sisddrm.produto.Produto;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -29,5 +31,11 @@ public class ClienteController {
   @RequestMapping(value = "/novo", method = POST)
   public Cliente novo(@RequestBody Cliente cliente) {
     return clienteService.registrarCliente(cliente);
+  }
+  
+  
+  @RequestMapping(value = "/delete", method = POST)
+  public void delete(@RequestBody Cliente cliente) {
+     clienteService.delete(cliente.getCodigo());
   }
 }

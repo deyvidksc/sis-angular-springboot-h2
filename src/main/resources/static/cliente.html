@@ -1,47 +1,54 @@
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<div ng-controller="clienteCtrl">
+	<div class="w3-card-4">
+		<div class="w3-container">
+			<h4>Manter Cliente</h4>
+		</div>
 
+		<form class="w3-container w3-small" name="clienteForm">
+			<p><label>C&oacute;digo</label>
+				<input id="txt_codigo" name="codigo" type="text" size="5px"
+					placeholder="C&oacute;digo" class="w3-input"
+					ng-model="cliente.codigo"> 
+			</p>
 
+			<p><label>Nome</label>
+				<input id="txt_nome" name="nome" type="text" size="32px"
+					placeholder="Coloque aqui o nome" class="w3-input"
+					ng-model="cliente.nome"> 
+			</p>
+			 
 
-<span class="w3-right w3-opacity">1 min</span>
-<h4>Cliente</h4>
-<br>
-<div class="w3-row-padding" style="margin: 0 -16px">
-
-
-	<!-- Novo cliente. -->
-	<form class="form-horizontal">
-		<fieldset>
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Código</label>
-				<div class="col-md-6">
-					<input id="txt_codigo" type="text"
-						placeholder="Coloque aqui o código" class="form-control input-md"
-						ng-model="cliente.codigo">
-				</div>
-			</div>
-			<!-- Nome -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Nome</label>
-				<div class="col-md-6">
-					<input id="txt_nome" type="text" placeholder="Coloque aqui o nome"
-						class="form-control input-md" ng-model="cliente.nome">
-				</div>
-			</div>
-			<!-- Button -->
-			<div class="form-group">
-				<label class="col-md-4 control-label"></label>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-primary"
-						ng-click="novoCliente(cliente)">Novo</button>
-				</div>
-			</div>
-
-		</fieldset>
-	</form>
-
-
-
+			</p>
+			<button type="button" class="w3-btn w3-theme"
+				ng-click="novoCliente(cliente);"> Salvar</button>
+			&emsp;
+			<button type="button" class="w3-btn w3-theme"
+				ng-click=" listarCliente()">Listar</button>
+			</p>
+		</form>
+	</div>
+	<hr>
+	<p>
+	<div class="w3-container">
+		<h4>Lista de produtos</h4>
+		<table class="w3-table-all">
+			<tr>
+				<th>Codigo</th>
+				<th>Nome</th>
+				<th>AC</th>
+			</tr>
+			<tr ng-repeat="cliente in clientes">
+				<td>{{cliente.codigo}}</td>
+				<td>{{cliente.nome}}</td>
+				<td><button type="button" class="w3-btn w3-theme"
+						ng-click="editarCliente(cliente)">Editar</button></td>
+			</tr>
+		</table>
+	</div>
 </div>
+<hr>
+<p>
+	<!-- Container -->
 
 
 <!-- Container -->

@@ -1,60 +1,76 @@
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-						<span class="w3-right w3-opacity">1 min</span>
-						<h4>Produto</h4>
-						<br>	
-<div class="w3-row-padding" style="margin: 0 -16px"> 
-	<form class="form-horizontal">
-		<fieldset>
-			<!-- Form Name -->
-			<!-- Cï¿½digo -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Cï¿½digo</label>
-				<div class="col-md-6">
-					<input id="txt_codigo" name="codigo" type="text"
-						placeholder="Coloque aqui o cï¿½digo" class="form-control input-md"
-						ng-model="produto.codigo">
-				</div>
-			</div>
-			<!-- Nome -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Nome</label>
-				<div class="col-md-6">
-					<input id="txt_nome" name="nome" type="text"
-						placeholder="Coloque aqui o nome" class="form-control input-md"
-						ng-model="produto.nome">
-				</div>
-			</div>
-			<!-- Tipo -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Tipo</label>
-				<div class="col-md-6">
-					<input id="txt_tipo" name="tipo" type="text"
-						placeholder="Coloque aqui o tipo (perecivel, etc)"
-						class="form-control input-md" ng-model="produto.tipo">
-				</div>
-			</div>
-			<!-- Quantidade -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Quantidade</label>
-				<div class="col-md-6">
-					<input id="txt_quantidade" name="quantidade" type="text"
-						placeholder="Coloque aqui a quantidade"
-						class="form-control input-md" ng-model="produto.quantidade">
-				</div>
-			</div>
-			{{produto.data}}
-			<!-- Button -->
-			<div class="form-group">
-				<label class="col-md-4 control-label"></label>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-primary"
-						ng-click="novoProduto(produto)">Novo</button>
-				</div>
-			</div>
+<div ng-controller="produtoCtrl">
+	<div class="w3-card-4">
+		<div class="w3-container">
+			<h4>Manter Produto</h4>
+		</div>
 
-		</fieldset>
-	</form>
+		<form class="w3-container w3-small" name="prodForm">
+			<p>
+				<label>C&oacute;digo</label> <input id="txt_codigo" name="codigo"
+					type="text" size="5px" placeholder="C&oacute;digo" class="w3-input"
+					ng-model="produto.codigo">
+			</p>
+
+			<p>
+				<label>Nome</label> <input id="txt_nome" name="nome" type="text"
+					size="32px" placeholder="Coloque aqui o nome" class="w3-input"
+					ng-model="produto.nome">
+			</p>
+			<p>
+				<lab el>Tipo</label> <input id="txt_tipo" name="quantidade"
+					type="text" size="32px" placeholder="Coloque aqui a quantidade"
+					class="w3-input" ng-model="produto.tipo">
+			</p>
+			<p>
+				<lab el>Quantidade</label> <input id="txt_quantidade"
+					name="quantidade" type="text" size="32px"
+					placeholder="Coloque aqui a quantidade" class="w3-input"
+					ng-model="produto.quantidade">
+			</p>
+
+			</p>
+			<button type="button" class="w3-btn w3-theme"
+				ng-click="novoProduto(produto);"> Salvar</button>
+			&emsp;
+			<button type="button" class="w3-btn w3-theme"
+				ng-click=" listarProduto()">Listar</button>
+
+			&emsp;
+			<button class="w3-btn w3-theme" ng-click="apagarProdutos(produtos)"
+				ng-if="hasContatoSelecionado">Apagar Produtos</button>
+			</p>
+		</form>
+	</div>
+	<hr>
+	<p>
+		<input class="w3-input" type="text" ng-model="criterioDeBusca"
+			placeholder="pesquisar" />
+	<div class="w3-container">
+		<h4>Lista de produtos</h4>
+
+		<table class="w3-table-all">
+			<tr>
+				<th>Codigo</th>
+				<th>Nome</th>
+				<th>Tipo</th>
+				<th>Quantidade</th>
+				<th>Select</th>
+			</tr>
+			<tr ng-repeat="produto in produtos | filter:criterioDeBusca "
+				ng-class="{'selecionado negrito': produto.selecionado}">
+				<td>{{produto.codigo}}</td>
+				<td>{{produto.nome}}</td>
+				<td>{{produto.tipo}}</td>
+				<td>{{produto.quantidade}}</td>
+				<td><input type="checkbox" ng-model="produto.selecionado" ng-click="verificarProdutoSelecionado(produtos)"/></td>
+				<!-- 				<td><button type="button" class="w3-btn w3-theme" -->
+				<!-- 						ng-click="editarProduto(produto)">Editar</button></td> -->
+
+			</tr>
+		</table>
+	</div>
 </div>
-</div>	
-<!-- Container -->
+<hr>
+<p>
+	<!-- Container -->
